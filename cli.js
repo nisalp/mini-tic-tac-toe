@@ -27,7 +27,7 @@ async function playerTurn(name, symbol) {
       message: "Enter the column number (1-3):",
     },
   ]);
-  return [response.row, response.col];
+  return [response.row, response.col, symbol];
 }
 
 module.exports = {
