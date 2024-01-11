@@ -1,13 +1,19 @@
-const { askForName, playerTurn, exitProgram } = require("./cli");
+const { askForSize, playerTurn, exitProgram } = require("./cli");
+const { createBoard, clickCell } = require("./board");
 
 async function main() {
-  const player1 = await askForName("Hi, player 1, what's your name?");
-  const player2 = await askForName("Hi, player 2, what's your name?");
+  // asking the player for the size of the board
+  const rows = await createBoard();
 
   while (true) {
-    const turnResponse = await playerTurn(player1, "X");
+    const turnResponse = await playerTurn(rows);
     console.log(turnResponse);
-    exitProgram();
+
+    let click = clickCell(turnResponse);
+
+    if (click === 1) {
+      exitProgram();
+    }
   }
 }
 

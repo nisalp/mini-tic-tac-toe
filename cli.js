@@ -4,22 +4,25 @@ async function exitProgram() {
   process.exit();
 }
 
-async function askForName(message) {
+async function askForSize(message) {
   const response = await prompts({
-    type: "text",
+    type: "number",
     name: "value",
     message: message,
   });
+
+  // squaring the user's answer to create a square board
+  // boardSize = response.value * response.value;
   return response.value;
 }
 
-async function playerTurn(name, symbol) {
-  console.info(`It's your turn ${name}(${symbol})}`);
+async function playerTurn(rows) {
+  console.info(`Select a cell by typing the row and column numbers (1 - ${rows}).`);
   const response = await prompts([
     {
       type: "number",
       name: "row",
-      message: "Enter the row number(1-3):",
+      message: "Enter the row number:",
     },
     {
       type: "number",
@@ -33,5 +36,5 @@ async function playerTurn(name, symbol) {
 module.exports = {
   exitProgram,
   playerTurn,
-  askForName,
+  askForSize,
 };
