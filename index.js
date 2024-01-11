@@ -1,17 +1,20 @@
 const { askForSize, playerTurn, exitProgram } = require("./cli");
-const { createBoard, clickCell } = require("./board");
+const { chooseMode, createBoard, validateClick, markCell } = require("./board");
 
 async function main() {
   // asking the player for the size of the board
-  const rows = await createBoard();
+  const mode = await chooseMode();
+  const rows = await createBoard(mode);
 
   while (true) {
-    const turnResponse = await playerTurn(rows);
+    let turnResponse = await playerTurn(rows);
     console.log(turnResponse);
 
-    let click = clickCell(turnResponse);
+    let click = validateClick(turnResponse);
 
-    if (click === 1) {
+    let mark = markCell(turnResponse, mode);
+
+    if (mark === 1 || mark === 2) {
       exitProgram();
     }
   }

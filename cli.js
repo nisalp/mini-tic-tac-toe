@@ -16,6 +16,18 @@ async function askForSize(message) {
   return response.value;
 }
 
+async function askForMode() {
+    const response = await prompts({
+      type: "text",
+      name: "value",
+      message: `Do you want Test Mode or Play Mode?\n\nFor Test Mode enter T.\nIn Test Mode, you will be shown an additional board with the bombs so you can test by clicking the cell you want.\n\nFor Play Mode, enter P.\nIn Play Mode you will only be shown the blank board, like the actual game.\n\nTest Mode(T) or Play Mode(P)? `,
+    });
+    
+    answer = response.value;
+
+    return answer.toLowerCase();
+}
+
 async function playerTurn(rows) {
   console.info(`Select a cell by typing the row and column numbers (1 - ${rows}).`);
   const response = await prompts([
@@ -37,4 +49,5 @@ module.exports = {
   exitProgram,
   playerTurn,
   askForSize,
+  askForMode
 };
