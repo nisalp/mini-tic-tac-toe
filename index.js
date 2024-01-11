@@ -1,13 +1,22 @@
-const { askForName, playerTurn, exitProgram } = require("./cli");
+const { askForSize, playerTurn, exitProgram } = require("./cli");
+const { chooseMode, createBoard, validateClick, markCell } = require("./board");
 
 async function main() {
-  const player1 = await askForName("Hi, player 1, what's your name?");
-  const player2 = await askForName("Hi, player 2, what's your name?");
+  // asking the player for the size of the board
+  const mode = await chooseMode();
+  const rows = await createBoard(mode);
 
   while (true) {
-    const turnResponse = await playerTurn(player1, "X");
+    let turnResponse = await playerTurn(rows);
     console.log(turnResponse);
-    exitProgram();
+
+    let click = validateClick(turnResponse);
+
+    let mark = markCell(turnResponse, mode);
+
+    if (mark === 1 || mark === 2) {
+      exitProgram();
+    }
   }
 }
 
