@@ -124,14 +124,14 @@ function printRealBoard(realBoard, rows) {
     }
 }
 
-function validateClick(turnResponse) {
-    if (turnResponse[0] < 1 || turnResponse [1] < 1 || turnResponse[0] > realBoard.length || turnResponse[1] > realBoard.length) {
-        console.log(`Row and Column numbers should be between 1 and ${realBoard.length}`);
-        return 1;
-    } else {
-        return 0;
-    }
-}
+// function validateClick(turnResponse) {
+//     if (turnResponse[0] < 1 || turnResponse [1] < 1 || turnResponse[0] > realBoard.length || turnResponse[1] > realBoard.length) {
+//         console.log(`Row and Column numbers should be between 1 and ${realBoard.length}`);
+//         return 1;
+//     } else {
+//         return 0;
+//     }
+// }
 
 function markCell(turnResponse, mode) {
     // turnResponse[0] is the row

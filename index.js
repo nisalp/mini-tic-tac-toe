@@ -10,7 +10,7 @@ async function main() {
     let turnResponse = await playerTurn(rows);
     console.log(turnResponse);
 
-    let click = validateClick(turnResponse);
+    // let click = validateClick(turnResponse);
 
     let mark = markCell(turnResponse, mode);
 
