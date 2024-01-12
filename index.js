@@ -1,5 +1,5 @@
 const { askForSize, playerTurn, exitProgram } = require("./cli");
-const { chooseMode, createBoard, validateClick, markCell } = require("./board");
+const { chooseMode, createBoard, markCell } = require("./board");
 
 async function main() {
   // asking the player for the size of the board

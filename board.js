@@ -2,19 +2,21 @@
 const { askForMode, askForSize, playerTurn, exitProgram } = require("./cli");
 
 async function chooseMode() {
-    assignMode = await askForMode();
+    let assignMode;
 
-    if (assignMode === "p") {
-        console.log();
-        return 0;
-    }
-    
-    if (assignMode === "t") {
-        console.log();
-        return 1;
-    }
+    while (assignMode !== "p" || assignMode !== "t"){
+        assignMode = await askForMode();
 
-    await chooseMode();
+        if (assignMode === "p") {
+            console.log();
+            return 0;
+        }
+        
+        if (assignMode === "t") {
+            console.log();
+            return 1;
+        }
+    }
 }
 
 let realBoard = [];
@@ -219,6 +221,5 @@ function markCell(turnResponse, mode) {
 module.exports = {
     chooseMode,
     createBoard,
-    validateClick,
     markCell
   };
