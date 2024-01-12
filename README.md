@@ -1,22 +1,16 @@
-## Mini Tic Tac Toe
+This is a CLI version of Minesweeper game.
 
-Starter kit for the tic tac toe miniproject for my programming basics class.
+Features
+- User input validation
+- Test mode
+- Play mode
 
-### Getting starting
+Test Mode
+- User will see 2 boards.
+  - Real Board with the bombs visible to know where the bombs are.
+  - Pseudo Board with bombs invisible to emulate the Play Mode experience.
+  - The reveal is needed because bombs are randomly generated.
+- User can refer to the bomb positions in the Real Board and select desired cell to implement test cases.
 
-1. Clone this project on to your computer.
-2. Make sure you have NodeJS and Yarn installed on your machine.
-3. Run `yarn install` from inside the project folder to install dependencies.
-4. To run the program, you can run `node index.js`.
-
-### Board printing layout
-
-```
--------
-| |O|X|
--------
-|O|O| |
--------
-|X|X|X|
--------
-```
+Play Mode
+- Regular game.
