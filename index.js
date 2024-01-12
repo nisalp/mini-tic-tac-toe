@@ -14,7 +14,7 @@ async function main() {
 
     let mark = markCell(turnResponse, mode);
 
-    if (mark === 1 || mark === 2) {
+    if (mark === 1) {
       exitProgram();
     }
   }
